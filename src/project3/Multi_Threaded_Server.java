@@ -1,4 +1,4 @@
-package com.company;
+package project3;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -7,17 +7,18 @@ import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-public class Single_Threaded_Server {
-    private final ServerSocket serverSocket;
+public class Multi_Threaded_Server extends Thread {
 
-    public Single_Threaded_Server(ServerSocket serverSocket) {
-        this.serverSocket = serverSocket;
+    private final Socket socket;
+
+    public Multi_Threaded_Server(Socket socket) {
+        this.socket = socket;
     }
 
+    @Override
     public void run() {
         while(true) {
-            try (Socket socket = serverSocket.accept();
-                 BufferedReader reader = new BufferedReader (new InputStreamReader(socket.getInputStream()));
+            try (BufferedReader reader = new BufferedReader (new InputStreamReader(socket.getInputStream()));
                  PrintWriter writer = new PrintWriter(socket.getOutputStream())) {
                 Thread.sleep(250);
 
@@ -26,6 +27,7 @@ public class Single_Threaded_Server {
                 Write data to the writer
                 Flush the writer
                  */
+                socket.close();
             }
             catch (IOException | InterruptedException exception) {
                 exception.printStackTrace();
