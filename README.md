@@ -3,11 +3,12 @@
 This is the 3rd project for Operating Systems Environments.
 
 ## Group Members:
-    - Troy Bogle
-    - Greg Cunningham
-    - Bishaui Dong
-    - Stephen Hartman
-    - Seth Johnson
+
+- Troy Bogle
+- Greg Cunningham
+- Bishaui Dong
+- Stephen Hartman
+- Seth Johnson
 
 ## Description:
 
@@ -37,7 +38,7 @@ This project allows students to implement a single- and multi-threaded client-se
 
 1. Run the client program against the single- and multi-threaded servers using an increasing number of clients
 
-`1, 2, 3, 4, 5, 10, 25, 50, 100 and 500`
+    `1, 2, 3, 4, 5, 10, 25, 50, 100 and 500`
 
 1. Record the collected data in an Excel spreadsheet
     1. Total Turn-around Time
@@ -49,7 +50,7 @@ This project allows students to implement a single- and multi-threaded client-se
 1. Modify the source code of the single- and multi-threaded servers
     1. Change the statement Thread.sleep(250); to Thread.sleep(500);
     1. Perform Part 1 again using a maximum of 50 clients
-        - Note: Create two (2) additional charts.
+    ##### Note: Create two (2) additional charts.
 1. Modify the source code of the single- and multi-threaded servers
     1. Change the statement Thread.sleep(500); to Thread.sleep(250);
 
