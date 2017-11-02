@@ -1,4 +1,4 @@
-package project3;
+package project3_server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,11 +22,13 @@ public class Multi_Threaded_Server extends Thread {
                  PrintWriter writer = new PrintWriter(socket.getOutputStream())) {
                 Thread.sleep(250);
 
-                /*
-                Read data from the reader
-                Write data to the writer
-                Flush the writer
-                 */
+                System.out.println("Multi-Threaded Server ... Listening on port " + socket.getLocalPort());
+                while(reader.readLine() != null) {
+                    int clientNumber = Integer.parseInt(reader.readLine());
+                    System.out.println("Processing Request from Client " + clientNumber + ".");
+                    writer.print("Client " + clientNumber + " Processed.");
+                }
+                writer.flush();
                 socket.close();
             }
             catch (IOException | InterruptedException exception) {

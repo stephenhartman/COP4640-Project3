@@ -1,4 +1,4 @@
-package project3;
+package project3_server;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Single_Threaded_Server {
     private final ServerSocket serverSocket;
@@ -21,11 +22,13 @@ public class Single_Threaded_Server {
                  PrintWriter writer = new PrintWriter(socket.getOutputStream())) {
                 Thread.sleep(250);
 
-                /*
-                Read data from the reader
-                Write data to the writer
-                Flush the writer
-                 */
+                System.out.println("Single-Threaded Server ... Listening on port " + serverSocket.getLocalPort());
+                while(reader.readLine() != null) {
+                    int clientNumber = Integer.parseInt(reader.readLine());
+                    System.out.println("Processing Request from Client " + clientNumber + ".");
+                    writer.print("Client " + clientNumber + " Processed.");
+                }
+                writer.flush();
             }
             catch (IOException | InterruptedException exception) {
                 exception.printStackTrace();
