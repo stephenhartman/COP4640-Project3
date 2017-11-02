@@ -6,7 +6,6 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Single_Threaded_Server {
     private final ServerSocket serverSocket;
@@ -23,11 +22,9 @@ public class Single_Threaded_Server {
                 Thread.sleep(250);
 
                 System.out.println("Single-Threaded Server ... Listening on port " + serverSocket.getLocalPort());
-                while(reader.readLine() != null) {
-                    int clientNumber = Integer.parseInt(reader.readLine());
-                    System.out.println("Processing Request from Client " + clientNumber + ".");
-                    writer.print("Client " + clientNumber + " Processed.");
-                }
+                int clientNumber = Integer.parseInt(reader.readLine());
+                System.out.println("Processing Request from Client " + clientNumber + ".");
+                writer.print("Client " + clientNumber + " Processed.");
                 writer.flush();
             }
             catch (IOException | InterruptedException exception) {

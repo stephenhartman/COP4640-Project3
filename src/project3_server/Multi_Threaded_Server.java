@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
-import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Multi_Threaded_Server extends Thread {
@@ -23,11 +22,9 @@ public class Multi_Threaded_Server extends Thread {
                 Thread.sleep(250);
 
                 System.out.println("Multi-Threaded Server ... Listening on port " + socket.getLocalPort());
-                while(reader.readLine() != null) {
-                    int clientNumber = Integer.parseInt(reader.readLine());
-                    System.out.println("Processing Request from Client " + clientNumber + ".");
-                    writer.print("Client " + clientNumber + " Processed.");
-                }
+                int clientNumber = Integer.parseInt(reader.readLine());
+                System.out.println("Processing Request from Client " + clientNumber + ".");
+                writer.print("Client " + clientNumber + " Processed.");
                 writer.flush();
                 socket.close();
             }
