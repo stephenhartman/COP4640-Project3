@@ -22,7 +22,7 @@ public class Single_Threaded_Server {
                 Thread.sleep(250);
 
                 System.out.println("Single-Threaded Server ... Listening on port " + serverSocket.getLocalPort());
-                int clientNumber = Integer.parseInt(reader.readLine());
+                String clientNumber = reader.readLine();
                 System.out.println("Processing Request from Client " + clientNumber + ".");
                 writer.print("Client " + clientNumber + " Processed.");
                 writer.flush();
