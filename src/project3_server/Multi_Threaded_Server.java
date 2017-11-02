@@ -34,6 +34,7 @@ public class Multi_Threaded_Server extends Thread {
             System.out.println(message);
             writer.println(message);
             writer.flush();
+            socket.close();     // Close socket
         }
         catch (IOException | InterruptedException exception) {
             exception.printStackTrace();

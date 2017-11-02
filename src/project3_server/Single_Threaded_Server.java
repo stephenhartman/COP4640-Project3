@@ -39,7 +39,7 @@ public class Single_Threaded_Server {
             writer.println(message + "ed.");
 
             writer.flush();     // Flush output stream
-            socket.close();     // Close socket
+
         } catch (IOException | InterruptedException exception) {
             exception.printStackTrace();
             System.exit(1);
