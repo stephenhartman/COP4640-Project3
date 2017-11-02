@@ -3,6 +3,12 @@ package project3_server;
 import java.io.IOException;
 import java.net.ServerSocket;
 
+/**
+ *  Server creates either single or multi-threaded server objects to process
+ *  client data.
+ *  @author stephenhartman
+ *  @version 11/2/17
+ */
 public class Server {
 
 
